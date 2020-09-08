@@ -17,3 +17,16 @@ class Place(models.Model):
         max_digits=16,
         decimal_places=14,
     )
+
+
+class Image(models.Model):
+    image = models.ImageField()
+    title = models.CharField(
+        max_length=100,
+    )
+    number = models.PositiveSmallIntegerField(
+        unique=True,
+    )
+
+    def __str__(self):
+        return f'{self.number} {self.title}'

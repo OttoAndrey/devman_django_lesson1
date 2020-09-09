@@ -18,6 +18,9 @@ class Place(models.Model):
         decimal_places=14,
     )
 
+    def __str__(self):
+        return self.title
+
 
 class Image(models.Model):
     image = models.ImageField()
@@ -25,7 +28,11 @@ class Image(models.Model):
         max_length=100,
     )
     number = models.PositiveSmallIntegerField(
-        unique=True,
+    )
+    place = models.ForeignKey(
+        Place,
+        on_delete=models.CASCADE,
+        verbose_name='Место',
     )
 
     def __str__(self):

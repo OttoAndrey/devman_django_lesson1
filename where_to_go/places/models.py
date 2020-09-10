@@ -2,20 +2,34 @@ from django.db import models
 
 
 class Place(models.Model):
+    point_title = models.CharField(
+        max_length=50,
+        verbose_name='Название точки',
+    )
+    place_id = models.CharField(
+        max_length=50,
+        verbose_name='Идентификатор точки',
+    )
     title = models.CharField(
         max_length=100,
+        verbose_name='Название',
     )
     description_short = models.TextField(
         max_length=280,
+        verbose_name='Короткое описание',
     )
-    description_long = models.TextField()
+    description_long = models.TextField(
+        verbose_name='Описание точки',
+    )
     lng = models.DecimalField(
-        max_digits=16,
-        decimal_places=14,
+        max_digits=17,
+        decimal_places=15,
+        verbose_name='Долгота',
     )
     lat = models.DecimalField(
-        max_digits=16,
-        decimal_places=14,
+        max_digits=17,
+        decimal_places=15,
+        verbose_name='Ширина',
     )
 
     def __str__(self):
@@ -23,11 +37,15 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField()
+    image = models.ImageField(
+        verbose_name='Изображение'
+    )
     title = models.CharField(
         max_length=100,
+        verbose_name='Название',
     )
     number = models.PositiveSmallIntegerField(
+        verbose_name='Порядковый номер',
     )
     place = models.ForeignKey(
         Place,

@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 from .models import Place
 
@@ -27,3 +28,9 @@ def index(request):
         geo_json['features'].append(point)
 
     return render(request, 'where_to_go/index.html', context={'places': geo_json})
+
+
+def place_detail_view(request, place_id):
+    place = get_object_or_404(Place, pk=place_id)
+
+    return HttpResponse(place.title)

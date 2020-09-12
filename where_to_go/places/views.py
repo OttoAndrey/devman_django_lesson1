@@ -5,12 +5,12 @@ from .models import Place, Image
 
 
 def index(request):
+    places = Place.objects.all()
+
     geo_json = {
         "type": "FeatureCollection",
         "features": []
     }
-
-    places = Place.objects.all()
 
     for place in places:
         point = {
@@ -22,7 +22,7 @@ def index(request):
             "properties": {
                 "title": place.point_title,
                 "placeId": place.place_id,
-                "detailsUrl": "./places/roofs24.json"
+                "detailsUrl": f"places/{place.pk}/"
             }
         }
         geo_json['features'].append(point)

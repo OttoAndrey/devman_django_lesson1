@@ -46,6 +46,9 @@ class Image(models.Model):
         verbose_name='Название',
     )
     number = models.PositiveSmallIntegerField(
+        default=0,
+        blank=False,
+        null=False,
         verbose_name='Порядковый номер',
     )
     place = models.ForeignKey(
@@ -53,6 +56,9 @@ class Image(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Место',
     )
+
+    class Meta(object):
+        ordering = ('number', )
 
     def headshot_image(self):
         return format_html('<img src="{url}" height="200"/>'.format(

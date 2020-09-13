@@ -1,22 +1,24 @@
+from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 from django.contrib import admin
 
 from .models import Place, Image
 
 
 @admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    fields = ('image', 'title', 'headshot_image', 'number',)
+class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
+    fields = ('image', 'title', 'headshot_image', )
     readonly_fields = ('headshot_image',)
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
-    fields = ('image', 'title', 'headshot_image', 'number',)
+    fields = ('image', 'title', 'headshot_image',)
     readonly_fields = ('headshot_image',)
+    extra = 0
 
 
 @admin.register(Place)
 class PlaceAdmin(admin.ModelAdmin):
-    inlines = [
+    inlines = (
         ImageInline,
-    ]
+    )

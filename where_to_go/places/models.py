@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 
 
 class Place(models.Model):
@@ -52,6 +53,13 @@ class Image(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Место',
     )
+
+    def headshot_image(self):
+        return format_html('<img src="{url}" height="200"/>'.format(
+            url=self.image.url,
+            )
+        )
+    headshot_image.short_description = 'Предизображение'
 
     def __str__(self):
         return f'{self.number} {self.place}'

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.html import format_html
+from tinymce import models as tinymce_models
 
 
 class Place(models.Model):
@@ -19,7 +20,7 @@ class Place(models.Model):
         max_length=280,
         verbose_name='Короткое описание',
     )
-    description_long = models.TextField(
+    description_long = tinymce_models.HTMLField(
         verbose_name='Описание точки',
     )
     lng = models.DecimalField(

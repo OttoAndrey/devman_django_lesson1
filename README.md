@@ -7,11 +7,19 @@ Devman. Django. Первый урок.
 Проект представляет из себя карту мира. На которую можно наносить достопримечательности.
 Фронт взят [отсюда](https://github.com/devmanorg/where-to-go-frontend)
 
-![](.gitbook/assets/project.png) 
+![front](.gitbook/assets/project.PNG) 
 
 ## Кастом админка
 Процесс добавления точки реализован через кастомизированную админку.
 
-![](.gitbook/assets/admin1.png)
+![admin_one](.gitbook/assets/admin1.PNG)
 
-![](.gitbook/assets/admin2.png) 
+Изображения можно добавлять прямо на странице места.
+
+![admin_two](.gitbook/assets/admin2.PNG) 
+
+## Используемые библиотеки
+
+*[WYSIWYG-редактор](https://github.com/aljosa/django-tinymce) - редактор текста
+
+*[ango-admin-sortable2](https://pypi.org/project/django-admin-sortable2/) - чтобы менять порядок изображений места drag-and-drop

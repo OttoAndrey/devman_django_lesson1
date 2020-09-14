@@ -1,7 +1,7 @@
 # Интересные места в мире
 Devman. Django. Первый урок.
 
-Сайт написан в рамках курса Django на devman.org
+Сайт реализован в рамках курса Django на devman.org
 
 ## Фронт проекта
 Проект представляет из себя карту мира. На которую можно наносить достопримечательности.
@@ -20,6 +20,6 @@ Devman. Django. Первый урок.
 
 ## Используемые библиотеки
 
-*[WYSIWYG-редактор](https://github.com/aljosa/django-tinymce) - редактор текста
+* [WYSIWYG-редактор](https://github.com/aljosa/django-tinymce) - редактор текста
 
-*[ango-admin-sortable2](https://pypi.org/project/django-admin-sortable2/) - чтобы менять порядок изображений места drag-and-drop
+* [django-admin-sortable2](https://pypi.org/project/django-admin-sortable2/) - чтобы менять порядок изображений места с помощью drag-and-drop

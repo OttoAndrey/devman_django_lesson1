@@ -12,9 +12,6 @@ Devman. Django. Первый урок.
 ## Кастом админка
 Процесс добавления точки реализован через кастомизированную админку.
 
-![alt text](.gitbook/assets/admin1.png) 
+![alt text](.gitbook/assets/admin1.png)
+
 ![alt text](.gitbook/assets/admin2.png) 
-
-[отсюда]: https://github.com/devmanorg/where-to-go-frontend
-
-[ascas]: https://github.com/devmanorg/where-to-go-frontend

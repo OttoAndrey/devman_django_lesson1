@@ -3,6 +3,10 @@ Devman. Django. Первый урок.
 
 Сайт реализован в рамках курса Django на devman.org
 
+Сайт можно посмотреть по ссылке [тут](http://rayotto.pythonanywhere.com/)
+
+Также можно попасть в [админку](http://rayotto.pythonanywhere.com/admin/) по guest TgB7Dx5DRYrEh5P
+
 ## Фронт проекта
 Проект представляет из себя карту мира. На которую можно наносить достопримечательности.
 Фронт взят [отсюда](https://github.com/devmanorg/where-to-go-frontend)

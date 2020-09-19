@@ -11,6 +11,7 @@ class Command(BaseCommand):
         parser.add_argument('place_json', nargs='+', type=str)
 
     def handle(self, *args, **options):
+        self.stdout.write('Command execution')
         r = requests.get(options['place_json'][0])
 
         if r.status_code == 200:
@@ -37,3 +38,9 @@ class Command(BaseCommand):
                         image.image.save(name, ContentFile(img_response.content), save=True)
 
                 self.stdout.write(self.style.SUCCESS(f'Successfully create place "{place}"'))
+
+            else:
+                self.stdout.write(self.style.WARNING('The object has already been created'))
+
+        else:
+            self.stdout.write(self.style.ERROR('Request failed'))

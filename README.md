@@ -1,4 +1,4 @@
-# Интересные места в мире
+# Куда пойти — Москва глазами Артёма
 Devman. Django. Первый урок.
 
 Сайт реализован в рамках курса Django на devman.org
@@ -14,7 +14,7 @@ Devman. Django. Первый урок.
 ![front](.gitbook/assets/project.PNG) 
 
 ## Кастом админка
-Процесс добавления точки реализован через кастомизированную админку.
+Процесс добавления места реализован через кастомизированную админку.
 
 ![admin_one](.gitbook/assets/admin1.PNG)
 
@@ -27,3 +27,7 @@ Devman. Django. Первый урок.
 * [WYSIWYG-редактор](https://github.com/aljosa/django-tinymce) - редактор текста
 
 * [django-admin-sortable2](https://pypi.org/project/django-admin-sortable2/) - чтобы менять порядок изображений места с помощью drag-and-drop
+
+## Данные
+
+Тестовые данные взяты с сайта [KudaGo](https://kudago.com).

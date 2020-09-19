@@ -17,7 +17,6 @@ class Place(models.Model):
         verbose_name='Название',
     )
     description_short = models.TextField(
-        max_length=280,
         verbose_name='Короткое описание',
     )
     description_long = tinymce_models.HTMLField(

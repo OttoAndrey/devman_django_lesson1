@@ -62,7 +62,7 @@ class Image(models.Model):
     )
 
     class Meta(object):
-        ordering = ('number', )
+        ordering = ['number', ]
 
     def headshot_image(self):
         return format_html('<img src="{url}" height="200"/>'.format(

@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 
 from .models import Place, Image
 
@@ -22,7 +23,7 @@ def index(request):
             "properties": {
                 "title": place.point_title,
                 "placeId": place.place_id,
-                "detailsUrl": f"places/{place.pk}/"
+                "detailsUrl": reverse('place_detail', args=[place.id])
             }
         }
         geo_json['features'].append(point)

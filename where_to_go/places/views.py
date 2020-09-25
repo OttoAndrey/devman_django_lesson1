@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from .models import Place, Image
+from .models import Place
 
 
 def index(request):
@@ -33,7 +33,7 @@ def index(request):
 
 def place_detail_view(request, place_id):
     place = get_object_or_404(Place, pk=place_id)
-    imgs = Image.objects.filter(place=place_id)
+    imgs = place.images.all()
 
     data = {
         "title": place.title,

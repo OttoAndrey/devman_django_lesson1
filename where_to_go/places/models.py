@@ -65,9 +65,13 @@ class Image(models.Model):
         ordering = ['number', ]
 
     def headshot_image(self):
-        return format_html('<img src="{}" height="200"/>',
-                           self.image.url,
-                           )
+        try:
+            return format_html('<img src="{}" height="200"/>',
+                               self.image.url,
+                               )
+        except ValueError:
+            return 'Место для превью файла'
+
     headshot_image.short_description = 'Предизображение'
 
     def __str__(self):

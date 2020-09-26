@@ -6,11 +6,11 @@ from tinymce import models as tinymce_models
 
 class Place(models.Model):
     point_title = models.CharField(
-        max_length=50,
+        max_length=100,
         verbose_name='Название точки',
     )
     place_id = models.CharField(
-        max_length=50,
+        max_length=100,
         verbose_name='Идентификатор точки',
     )
     title = models.CharField(
@@ -18,9 +18,11 @@ class Place(models.Model):
         verbose_name='Название',
     )
     description_short = models.TextField(
+        blank=True,
         verbose_name='Короткое описание',
     )
     description_long = tinymce_models.HTMLField(
+        blank=True,
         verbose_name='Описание точки',
     )
     lng = models.DecimalField(

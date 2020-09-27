@@ -53,8 +53,6 @@ class Image(models.Model):
     )
     number = models.PositiveSmallIntegerField(
         default=0,
-        blank=False,
-        null=False,
         verbose_name='Порядковый номер',
     )
     place = models.ForeignKey(

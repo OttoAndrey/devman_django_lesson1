@@ -8,11 +8,11 @@ from places.models import Place, Image
 class Command(BaseCommand):
 
     def add_arguments(self, parser):
-        parser.add_argument('place_json', nargs='+', type=str)
+        parser.add_argument('place_json', type=str)
 
     def handle(self, *args, **options):
         self.stdout.write('Command execution')
-        r = requests.get(options['place_json'][0])
+        place_response = requests.get(options['place_json'])
 
         if r.status_code == 200:
             data = r.json()

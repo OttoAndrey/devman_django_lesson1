@@ -1,7 +1,7 @@
 # Куда пойти — Москва глазами Артёма
 Devman. Django. Первый урок.
 
-Сайт реализован в рамках курса по Django на [devman.org](devman.org).
+Сайт реализован в рамках курса по Django на [devman](https://dvmn.org/modules/).
 
 Сайт можно посмотреть по ссылке [тут](http://rayotto.pythonanywhere.com/).
 
@@ -37,7 +37,7 @@ Devman. Django. Первый урок.
 
 * [django-admin-sortable2](https://pypi.org/project/django-admin-sortable2/) - чтобы менять порядок изображений точки с помощью drag-and-drop
 
-* [pythonanywhere](pythonanywhere.com) - хостинг проекта
+* [pythonanywhere](https://www.pythonanywhere.com/) - хостинг проекта
 
 ## Данные
 

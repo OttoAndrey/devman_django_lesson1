@@ -14,33 +14,35 @@ class Command(BaseCommand):
         self.stdout.write('Command execution')
         place_response = requests.get(options['place_json'])
 
-        if r.status_code == 200:
-            data = r.json()
-            place, place_created = Place.objects.get_or_create(
-                point_title=data['title'],
-                title=data['title'],
-                description_short=data['description_short'],
-                description_long=data['description_long'],
-                lng=data['coordinates']['lng'],
-                lat=data['coordinates']['lat'],
-            )
-
-            if place_created:
-                for img in data['imgs']:
-                    img_response = requests.get(img)
-
-                    if img_response.status_code == 200:
-                        name = img.split('/')[-1]
-                        image = Image.objects.create(
-                            title=place.title,
-                            place=place,
-                        )
-                        image.image.save(name, ContentFile(img_response.content), save=True)
-
-                self.stdout.write(self.style.SUCCESS(f'Successfully create place "{place}"'))
-
-            else:
-                self.stdout.write(self.style.WARNING('The object has already been created'))
-
-        else:
+        if not place_response.status_code == 200:
             self.stdout.write(self.style.ERROR('Request failed'))
+            return
+
+        place_data = place_response.json()
+        place, place_created = Place.objects.get_or_create(
+            point_title=place_data['title'],
+            title=place_data['title'],
+            description_short=place_data['description_short'],
+            description_long=place_data['description_long'],
+            lng=place_data['coordinates']['lng'],
+            lat=place_data['coordinates']['lat'],
+        )
+
+        if not place_created:
+            self.stdout.write(self.style.WARNING('The object has already been created'))
+            return
+
+        imgs_responses = [requests.get(img) for img in place_data['imgs']]
+
+        for img_response in imgs_responses:
+            if not img_response.status_code == 200:
+                continue
+
+            name = img_response.url.split('/')[-1]
+            image = Image.objects.create(
+                title=place.title,
+                place=place,
+            )
+            image.image.save(name, ContentFile(img_response.content), save=True)
+
+        self.stdout.write(self.style.SUCCESS(f'Successfully create place "{place}"'))

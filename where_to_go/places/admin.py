@@ -6,14 +6,14 @@ from .models import Place, Image
 
 @admin.register(Image)
 class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
-    fields = ['image', 'title', 'headshot_image', ]
-    readonly_fields = ['headshot_image', ]
+    fields = ['image', 'title', 'get_preview_image', ]
+    readonly_fields = ['get_preview_image', ]
 
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
-    fields = ['image', 'title', 'headshot_image', ]
-    readonly_fields = ['headshot_image', ]
+    fields = ['image', 'title', 'get_preview_image', ]
+    readonly_fields = ['get_preview_image', ]
     extra = 0
 
 

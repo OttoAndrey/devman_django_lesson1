@@ -61,7 +61,7 @@ class Image(models.Model):
     class Meta(object):
         ordering = ['number', ]
 
-    def headshot_image(self):
+    def get_preview_image(self):
         try:
             return format_html('<img src="{}" height="200"/>',
                                self.image.url,
@@ -69,7 +69,7 @@ class Image(models.Model):
         except ValueError:
             return 'Место для превью файла'
 
-    headshot_image.short_description = 'Предизображение'
+    get_preview_image.short_description = 'Предизображение'
 
     def __str__(self):
         return f'{self.number} {self.place}'

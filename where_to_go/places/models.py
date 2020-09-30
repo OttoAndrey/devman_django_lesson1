@@ -13,11 +13,11 @@ class Place(models.Model):
         max_length=100,
         verbose_name='Название',
     )
-    description_short = models.TextField(
+    short_description = models.TextField(
         blank=True,
         verbose_name='Короткое описание',
     )
-    description_long = tinymce_models.HTMLField(
+    long_description = tinymce_models.HTMLField(
         blank=True,
         verbose_name='Описание точки',
     )

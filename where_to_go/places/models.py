@@ -9,10 +9,6 @@ class Place(models.Model):
         max_length=100,
         verbose_name='Название точки',
     )
-    place_id = models.CharField(
-        max_length=100,
-        verbose_name='Идентификатор точки',
-    )
     title = models.CharField(
         max_length=100,
         verbose_name='Название',

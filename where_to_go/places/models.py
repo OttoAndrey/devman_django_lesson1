@@ -8,10 +8,12 @@ class Place(models.Model):
     point_title = models.CharField(
         max_length=100,
         verbose_name='Название точки',
+        help_text='При наведении курсором на точку будет отображаться это название.'
     )
     title = models.CharField(
         max_length=100,
         verbose_name='Название',
+        help_text='Название точки в карточке.'
     )
     short_description = models.TextField(
         blank=True,

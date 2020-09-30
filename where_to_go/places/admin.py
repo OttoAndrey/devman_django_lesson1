@@ -6,7 +6,8 @@ from .models import Place, Image
 
 @admin.register(Image)
 class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
-    fields = ['image', 'title', 'get_preview_image', ]
+    fields = ['image', 'title', 'place', 'get_preview_image', ]
+    raw_id_fields = ['place', ]
     readonly_fields = ['get_preview_image', ]
 
 

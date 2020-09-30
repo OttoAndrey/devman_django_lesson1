@@ -8,7 +8,7 @@ from .models import Place
 def index(request):
     places = Place.objects.all()
 
-    geo_json = {
+    geo = {
         "type": "FeatureCollection",
         "features": []
     }
@@ -26,9 +26,9 @@ def index(request):
                 "detailsUrl": reverse('place_detail', args=[place.id])
             }
         }
-        geo_json['features'].append(point)
+        geo['features'].append(point)
 
-    return render(request, 'index.html', context={'places': geo_json})
+    return render(request, 'index.html', context={'places': geo})
 
 
 def place_detail_view(request, place_id):

@@ -28,7 +28,7 @@ def index(request):
         }
         geo_json['features'].append(point)
 
-    return render(request, 'where_to_go/index.html', context={'places': geo_json})
+    return render(request, 'index.html', context={'places': geo_json})
 
 
 def place_detail_view(request, place_id):

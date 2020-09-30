@@ -20,12 +20,13 @@ class Command(BaseCommand):
 
         place_data = place_response.json()
         place, place_created = Place.objects.get_or_create(
-            point_title=place_data['title'],
             title=place_data['title'],
-            short_description=place_data['description_short'],
-            long_description=place_data['description_long'],
-            lng=place_data['coordinates']['lng'],
-            lat=place_data['coordinates']['lat'],
+            defaults={'point_title': place_data['title'],
+                      'short_description': place_data['description_short'],
+                      'long_description': place_data['description_long'],
+                      'lng': place_data['coordinates']['lng'],
+                      'lat': place_data['coordinates']['lat'],
+                      },
         )
 
         if not place_created:

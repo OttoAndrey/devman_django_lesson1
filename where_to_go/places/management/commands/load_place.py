@@ -14,7 +14,7 @@ class Command(BaseCommand):
         self.stdout.write('Command execution')
         place_response = requests.get(options['place_json'])
 
-        if not place_response.status_code == 200:
+        if not place_response.ok:
             self.stdout.write(self.style.ERROR('Request failed'))
             return
 
@@ -35,7 +35,7 @@ class Command(BaseCommand):
         imgs_responses = [requests.get(img) for img in place_data['imgs']]
 
         for img_response in imgs_responses:
-            if not img_response.status_code == 200:
+            if not img_response.ok:
                 continue
 
             name = img_response.url.split('/')[-1]

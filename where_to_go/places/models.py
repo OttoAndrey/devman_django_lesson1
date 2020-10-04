@@ -13,7 +13,7 @@ class Place(models.Model):
     title = models.CharField(
         max_length=100,
         verbose_name='Название',
-        help_text='Название точки в карточке.'
+        help_text='Заголовок в описании.'
     )
     short_description = models.TextField(
         blank=True,

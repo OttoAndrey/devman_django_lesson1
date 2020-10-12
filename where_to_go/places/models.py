@@ -61,9 +61,6 @@ class Image(models.Model):
         verbose_name='Место',
     )
 
-    class Meta(object):
-        ordering = ['number', ]
-
     def get_preview_image(self):
         try:
             return format_html('<img src="{}" height="200"/>',
@@ -76,3 +73,6 @@ class Image(models.Model):
 
     def __str__(self):
         return f'{self.number} {self.place}'
+
+    class Meta(object):
+        ordering = ['number', ]

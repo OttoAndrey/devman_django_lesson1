@@ -1,7 +1,5 @@
 # Куда пойти — Москва глазами Артёма
-Devman. Django. Первый урок.
-
-Сайт реализован в рамках курса по Django на [devman](https://dvmn.org/modules/).
+Карта с интересными местами с описанием и фотографиями.
 
 Сайт можно посмотреть по ссылке [тут](http://rayotto.pythonanywhere.com/).
 
@@ -42,3 +40,9 @@ Devman. Django. Первый урок.
 ## Данные
 
 Тестовые данные взяты с сайта [KudaGo](https://kudago.com).
+
+## Цели проекта
+
+Devman. Django. Первый урок.
+
+Сайт реализован в рамках курса по Django на [devman](https://dvmn.org/modules/).
